@@ -13,7 +13,7 @@ Imports System.Data.OleDb
 Imports System.Data.SqlClient
 Namespace sqlCms
     Public Class Systemdb
-
+        'Error Line 10 Please help me !!
         Public connect As SqlConnection
         Public command As New SqlCommand
         Public rder As SqlDataReader
