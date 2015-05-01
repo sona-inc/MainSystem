@@ -63,9 +63,29 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
-        Friend ReadOnly Property colorful_triangles_background() As System.Drawing.Bitmap
+        Friend ReadOnly Property _11025292_637071003060202_4631567676864041839_o() As System.Drawing.Bitmap
             Get
-                Dim obj As Object = ResourceManager.GetObject("colorful-triangles-background", resourceCulture)
+                Dim obj As Object = ResourceManager.GetObject("11025292_637071003060202_4631567676864041839_o", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Selling_flowers_2() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Selling flowers-2", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
+        Friend ReadOnly Property Selling_flowers_21() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("Selling flowers-21", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
             End Get
         End Property
