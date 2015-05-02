@@ -63,7 +63,7 @@
   <ItemGroup>
     <Reference Include="SonaFramework, Version=1.0.1.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
-      <HintPath>C:\Users\sophatvathana\Desktop\v3\SonaFramework\bin\Release\SonaFramework.dll</HintPath>
+      <HintPath>..\..\..\..\..\SonaFramework.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Data" />
