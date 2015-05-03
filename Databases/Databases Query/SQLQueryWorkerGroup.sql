@@ -1,0 +1,1 @@
+Create Table tbWorkerGroup(ID smallint identity(1,1) primary key,GroupName varchar(50),StaffID smallint,Description varchar(150),Amount money,constraint PKStaffID Foreign Key(StaffID) references tbStaff(StaffID) On Delete Cascade On Update Cascade)
