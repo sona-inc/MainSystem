@@ -65,7 +65,7 @@ Partial Class LoginForm
         'Panel1
         '
         Me.Panel1.BackColor = System.Drawing.Color.DarkRed
-        Me.Panel1.Location = New System.Drawing.Point(0, 0)
+        Me.Panel1.Location = New System.Drawing.Point(-1, 0)
         Me.Panel1.Name = "Panel1"
         Me.Panel1.Size = New System.Drawing.Size(557, 33)
         Me.Panel1.TabIndex = 3

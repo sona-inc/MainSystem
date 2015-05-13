@@ -8,10 +8,10 @@ Public Class Register : Inherits SonaFramework.Forms.SonaForm
     Dim bytImage() As Byte
     Private Sub Register_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         cms.Sqldumper()
-    'Create Procedure"
-    'GetAllAdminSchema
+        'Create Procedure"
+        'GetAllAdminSchema
         cms.CreateStoreProcedure("select id,username from tbAdminSchema", Nothing, "GetAllAdminSchema")
-    'InsertAdminSchema
+        'InsertAdminSchema
         cms.CreateStoreProcedure("insert into tbAdminSchema(username,pass_word,email,phone,reg_date,photo)values( @username ,@pass_word , @email ,@phone ,@reg_date,@photo )",
                                  "@username varchar(30),@pass_word varchar(60),@email varchar(50), @phone varchar(20), @reg_date date , @photo varbinary(MAX)", "InsertAdminSchema")
 
