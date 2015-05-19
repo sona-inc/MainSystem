@@ -1,0 +1,279 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{30527175-ABEB-4239-A6B8-60C8AAE2768E}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <StartupObject>CMS_Project.My.MyApplication</StartupObject>
+    <RootNamespace>CMS_Project</RootNamespace>
+    <AssemblyName>CMS Project</AssemblyName>
+    <FileAlignment>512</FileAlignment>
+    <MyType>WindowsForms</MyType>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile>CMS Project.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile>CMS Project.xml</DocumentationFile>
+    <NoWarn>42016,41999,42017,42018,42019,42032,42036,42020,42021,42022</NoWarn>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionExplicit>On</OptionExplicit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionCompare>Binary</OptionCompare>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionStrict>Off</OptionStrict>
+  </PropertyGroup>
+  <PropertyGroup>
+    <OptionInfer>On</OptionInfer>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Cms, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\SQL\Cms\Cms\bin\Debug\Cms.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SonaFramework, Version=1.2.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\V3\SonaFramework\bin\Debug\SonaFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="SonaFramework.Design, Version=1.2.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\v3-design\SonaFramework.Design\bin\Debug\SonaFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.ServiceProcess" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WindowsFormsIntegration" />
+  </ItemGroup>
+  <ItemGroup>
+    <Import Include="Microsoft.VisualBasic" />
+    <Import Include="System" />
+    <Import Include="System.Collections" />
+    <Import Include="System.Collections.Generic" />
+    <Import Include="System.Data" />
+    <Import Include="System.Drawing" />
+    <Import Include="System.Diagnostics" />
+    <Import Include="System.Windows.Forms" />
+    <Import Include="System.Linq" />
+    <Import Include="System.Xml.Linq" />
+    <Import Include="System.Threading.Tasks" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interface\FormReload.Designer.vb">
+      <DependentUpon>FormReload.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\FormReload.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmAttendance.Designer.vb">
+      <DependentUpon>frmAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmWorkerAttendance.Designer.vb">
+      <DependentUpon>frmWorkerAttendance.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmWorkerAttendance.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmEquipment.Designer.vb">
+      <DependentUpon>frmEquipment.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmEquipment.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmImportDetail.Designer.vb">
+      <DependentUpon>frmImportDetail.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmImportDetail.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmPosition.Designer.vb">
+      <DependentUpon>frmPosition.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmPosition.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmStaff.Designer.vb">
+      <DependentUpon>frmStaff.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmStaff.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmSupplier.designer.vb">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmSupplier.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmWorker.Designer.vb">
+      <DependentUpon>frmWorker.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmWorker.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\frmWorkerGroup.Designer.vb">
+      <DependentUpon>frmWorkerGroup.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\frmWorkerGroup.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Interface\Login.designer.vb">
+      <DependentUpon>Login.vb</DependentUpon>
+    </Compile>
+    <Compile Include="Interface\Login.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.vb">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.vb">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Modules\Module1.vb" />
+    <Compile Include="My Project\AssemblyInfo.vb" />
+    <Compile Include="My Project\Application.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Application.myapp</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Resources.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="My Project\Settings.Designer.vb">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <Compile Include="Modules\Stored Procedure.vb" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Interface\FormReload.resx">
+      <DependentUpon>FormReload.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmAttendance.resx">
+      <DependentUpon>frmAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmWorkerAttendance.resx">
+      <DependentUpon>frmWorkerAttendance.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmEquipment.resx">
+      <DependentUpon>frmEquipment.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmImportDetail.resx">
+      <DependentUpon>frmImportDetail.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmPosition.resx">
+      <DependentUpon>frmPosition.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmStaff.resx">
+      <DependentUpon>frmStaff.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmSupplier.resx">
+      <DependentUpon>frmSupplier.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmWorker.resx">
+      <DependentUpon>frmWorker.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\frmWorkerGroup.resx">
+      <DependentUpon>frmWorkerGroup.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Interface\Login.resx">
+      <DependentUpon>Login.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.vb</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="My Project\Resources.resx">
+      <Generator>VbMyResourcesResXFileCodeGenerator</Generator>
+      <CustomToolNamespace>My.Resources</CustomToolNamespace>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Resources.Designer.vb</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="My Project\Application.myapp">
+      <Generator>MyApplicationCodeGenerator</Generator>
+      <LastGenOutput>Application.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="My Project\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <CustomToolNamespace>My</CustomToolNamespace>
+      <LastGenOutput>Settings.Designer.vb</LastGenOutput>
+    </None>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\import-export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Workers.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\staff.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\photo.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\tool-box-icon.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\fork6.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\1431471688_malecostume-48.png" />
+    <Content Include="Resources\1431471773_hourglass-48.png" />
+    <Content Include="Resources\240FC90E00000578-2874678-image-a-44_1418659635115.jpg" />
+    <None Include="Resources\river-city-drawing-146761671.jpg" />
+    <None Include="Resources\240FC90E00000578-2874678-image-a-44_14186596351151.jpg" />
+    <None Include="Resources\ajax-loader.gif" />
+    <None Include="Resources\Graphicloads-100-Flat-Close.ico" />
+    <Content Include="Resources\river-city-drawing-14676167.jpg" />
+    <Content Include="Resources\tumblr_logotype_white_512.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.VisualBasic.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
