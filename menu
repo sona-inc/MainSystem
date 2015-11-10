@@ -1,0 +1,252 @@
+#/*====+++++========+++++===* 
+#* @Author: sovathana
+#* @Date:   2015-11-10 22:26:47
+#* @Last Modified by:   sovathana
+#* @Last Modified time: 2015-11-10 22:26:47
+#* @Email: sovathana.phat@gmail.com
+#* @Facebook && Twitter : Sophatvathana
+#* @Project: t
+#* @FileName: menu
+#*==========================
+#*/
+
+#!/bin/bash
+export	TE='\033[01;33m';
+export	TN='\033[00;m';
+export  TR='\033[00;31m';
+view(){
+	echo -e "$TR*********** Welcome to menu user management **************";
+	echo -e "***$TE 1)  $TN Create user           $TR***";
+	echo -e "***$TE 2)  $TN Delete user           $TR***";
+	echo -e "***$TE 3)  $TN Search user        		$TR***";
+	echo -e "***$TE 4)  $TN Change password 	 		$TR***";
+	echo -e "***$TE 5)  $TN Change Login name 		$TR***";
+	echo -e "***$TE 6)  $TN Create Group 			 		$TR***";
+  echo -e "***$TE 7)  $TN Change Group for user $TR***";
+  echo -e "***$TE 8)  $TN Change Group Name 		$TR***";
+	echo -e "***$TE 9)  $TN Delete Group 				  $TR***";
+	echo -e "***$TE 10) $TN List All users 				$TR***";
+	echo -e "***$TE 11) $TN Exit                  $TR***";
+	echo -e "$TR**********************************************************$TN";	
+  echo -e "Please choose option(Number):";
+  read ch;
+} 
+function isUserExisted() {
+	TESTER=0;
+	getent passwd $1>/dev/null&&TESTER=1;
+	echo "${TESTER}";
+}
+
+function isGroupExisted {
+	TESTER=0;
+	getent group $1>/dev/null&&TESTER=1;
+	echo "${TESTER}";
+}
+
+
+function createUser() {
+	echo -e "Please input user"; read user;
+    if [[ $(isUserExisted "$user") == 1 ]]; then
+     echo "User $user is existed";
+    else
+    	sudo adduser $user;
+    	echo -e "You are success to create user $user";
+    fi
+}
+
+function deleteUser() {
+	echo -e "Please input user to delete"; read user;
+		if [[ $(isUserExisted "$user") == 1 ]]; then
+     sudo userdel $user;
+     echo -e "You are success to delete user $user";
+    else
+     echo "$user is not existed Please create new";
+    	createUser;
+    fi
+}
+
+function search() {
+	echo -e "Please input to search user:";
+	read user;
+	if [[ $(isUserExisted "$user") == 1 ]]; then
+		echo -e "User ${TE}${user}${TN} is existed";
+	else
+		echo -e "User ${TE}${user}${TN} doesn't existed!!";
+	fi 
+}
+
+function changePassword() {
+	echo -e "Please input to change password:";
+	read user;
+	if [[ $(isUserExisted "$user") == 1 ]]; then
+		 sudo passwd $user;
+	else
+		echo -e "User ${TE}${user}${TN} doesn't existed!!";
+	fi 
+}
+
+function changeLoginName {
+	echo -e "Please input user to change Login Name:";
+	read user;
+	if [[ $(isUserExisted "$user") == 1 ]]; then
+		echo -e "${TE}Please input new Login: ${TN}";
+			read new;
+		 sudo usermod -l $new $user ;
+	else
+		echo -e "User ${TE}${user}${TN} doesn't existed!!";
+	fi 
+}
+
+function createGroup {
+	echo -e "Please input Group Name:";
+	read group;
+	if [[ $(isGroupExisted "$group") != 1 ]]; then
+		 sudo addgroup $group;
+	else
+		echo -e "Group name ${TE}${group}${TN} is existed!!\n";
+		createGroup;
+	fi 
+}
+
+function changeGroupForUser {
+	echo -e "Please input user to change Group:";
+	read user;
+	if [[ $(isUserExisted "$user") == 1 ]]; then
+		echo -e "${TE}Please input Group Name: ${TN}";
+			read group;
+			if [[ $(isGroupExisted "$group") != 1 ]]; then
+				  sudo usermod -G $group $user;
+			else
+					echo -e "Group name ${TE}${group}${TN} is existed!!\n";
+					createGroup;
+			fi 
+	
+	else
+		echo -e "User ${TE}${user}${TN} doesn't existed!!";
+	fi 
+}
+
+function changeGroupName {
+	echo -e "Please input Group Name:";
+	read group;
+	if [[ $(isGroupExisted "$group") == 1 ]]; then
+		echo -e "Input new name:";
+		read new;
+		 sudo groupmod -n $new $group;
+	else
+		echo -e "Group name ${TE}${group}${TN} isn't existed!!\n";
+		createGroup;
+	fi 
+}
+
+function deleteGroup {
+  echo -e "Please input Group Name:";
+	read group;
+	if [[ $(isGroupExisted "$group") == 1 ]]; then
+		 sudo groupdel $group;
+	else
+		echo -e "Group name ${TE}${group}${TN} isn't existed!!\n";
+		createGroup;
+	fi 
+}
+
+function funcexit {
+	echo "Are you sure ?(y\n)"
+	read key;
+	if [[ $key == "y" || $key == "yes" ]]; then
+	exit 0;
+	else
+		clear;
+		view;
+	fi
+}
+
+function listAllUser {
+	for i in $(getent passwd | cut -d : -f 1); do
+	 echo -n $i
+   echo " "
+done
+}
+
+function choosed() {
+	CHOOSEDTEXT=${@}
+	echo -e "You  are choosed ${CHOOSEDTEXT}!!";
+}
+
+ISROOT=$(id -u); 
+if [[ $ISROOT != 0 ]]; then #You can use if [[ `whoami` = root ]]; then
+	echo -e "Please Login as root user!!!!";
+	sudo -i $(readlink -f "$0");
+else
+		view;
+fi
+
+while [[ $ch != "" ]]
+do
+	if [[ $ch == "" ]]; then 
+	  exit;
+	fi
+	case $ch in 
+		1) clear;
+			choosed "Create user";
+			createUser;
+			view;
+			;;
+		2) clear;
+			choosed "Delete user";
+			deleteUser;
+			view;
+			;;
+		3) clear;
+			choosed "Searching user";
+			search;
+			view;
+			;;
+		4) clear;
+			choosed "Change password";
+			changePassword;
+			view;
+			;;
+		5) clear;
+			choosed "Change detail user";
+			changeLoginName;
+			view;
+			;;
+		6) clear;
+			choosed "Create new Group";
+			createGroup;
+			view;
+			;;
+		7) clear;
+			choosed "Change Group to user";
+			changeGroupForUser;
+			view;
+			;;
+		8) clear;
+			choosed "Change group name";
+			changeGroupName;
+			view;
+			;;
+		9) clear;
+			choosed "Delete Group";
+			deleteGroup
+			view;
+			;;
+		10) clear;
+			choosed "List all users";
+			listAllUser;
+			view;
+			;;
+		11) clear;
+			sleep 0;
+			funcexit;
+			;;
+		*) clear;
+			view;
+			;;
+		\n) clear;
+			view;
+			exit;
+			;;
+	esac;
+done;
